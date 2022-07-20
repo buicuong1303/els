@@ -1,0 +1,23 @@
+{
+  "root": "libs/server/learning/enrollment/feature",
+  "sourceRoot": "libs/server/learning/enrollment/feature/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/server/learning/enrollment/feature/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/server/learning/enrollment/feature"],
+      "options": {
+        "jestConfig": "libs/server/learning/enrollment/feature/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

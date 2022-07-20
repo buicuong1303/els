@@ -1,0 +1,1 @@
+export const numberSeparation = (str: string): number => Number(str.match(/\d/g)?.join(''));

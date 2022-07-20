@@ -1,0 +1,14 @@
+
+syntax = "proto3";
+
+package els.srv.notification;
+
+message SendMulticastRequest {
+  repeated string token =  1;
+}
+message SendMulticastResponse {
+  string userId =  1;
+}
+service LearningService {
+  rpc SendMulticast(SendMulticastRequest) returns (SendMulticastResponse) {}
+} 

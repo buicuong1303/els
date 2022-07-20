@@ -1,0 +1,15 @@
+HTTP_LINK_SERVER=http://graphql-federation-gateway:3000/graphql
+HTTP_LINK_BROWSER=https://api.els.com/graphql
+WS_LINK=wss://api.els.com/subscription/graphql
+
+COOKIES_URL=.els.com
+
+APP_URL=https://app.els.com
+GUARDIAN_URL=https://guardian.els.com
+
+CROSS_KRATOS_PUBLIC_URL_CLIENT=https://app.els.com/kratos
+KRATOS_PUBLIC_URL_CLIENT=https://guardian.els.com/kratos
+
+ENABLE_CHATWOOT=0 # 0 = false, 1 = true
+
+SITE_URL=https://app.els.com

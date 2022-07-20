@@ -1,0 +1,21 @@
+generates:
+  ./libs/client/app/shared/data-access/src/lib/graphql/types/dictionary.ts:
+    schema: ./gql-schema/dictionary.gql
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
+
+  ./libs/client/app/shared/data-access/src/lib/graphql/types/learning.ts:
+    schema: ./gql-schema/learning.gql
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
+
+  ./libs/client/guardian/data-access/src/lib/graphql/types/guardian.ts:
+    schema: ./gql-schema/guardian.gql
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo

@@ -1,0 +1,247 @@
+version: v0.9.0-alpha.3
+dsn: DSN=postgres://postgres:postgres@postgres:5432/kratos?sslmode=disable&max_conns=20&max_idle_conns=4
+
+identity:
+  default_schema_id: default
+  schemas:
+  - id: default
+    url: file:///etc/config/identity.schema.json
+
+selfservice:
+  default_browser_return_url: https://guardian.els.com
+
+  allowed_return_urls:
+    - https://guardian.els.com
+
+  methods:
+    password:
+      enabled: true
+      ## Password Configuration ##
+      # Define how passwords are validated.
+      config:
+        ## Allow Password Breaches ##
+        # Defines how often a password may have been breached before it is rejected.
+        haveibeenpwned_enabled: false
+        min_password_length: 8
+        identifier_similarity_check_enabled: true
+
+    oidc:
+      enabled: true
+      config:
+        providers:
+          - id: google # this is `<provider-id>` in the Authorization callback URL. DO NOT CHANGE IT ONCE SET!
+            provider: google
+            client_id: 177230040075-1rqq2etbn8dc6qac0pbh73mcd5hnqbe5.apps.googleusercontent.com # Replace this with the OAuth2 Client ID
+            client_secret: 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 # Replace this with the OAuth2 Client secret
+            # https://guardian.els.com/kratos/self-service/methods/oidc/callback/google for google redirect
+            mapper_url: file:///etc/config/oidc.google.jsonnet
+            scope:
+              - email
+              - profile
+              # other supported scopes can be found in Google OAuth 2.0 dev docs
+            requested_claims:
+              id_token:
+                email:
+                  essential: true
+                email_verified:
+                  essential: true
+                given_name:
+                  essential: true
+                family_name: null
+                hd: null # If you want the G Suite domain
+
+          - id: facebook # this is `<provider-id>` in the Authorization callback URL. DO NOT CHANGE IT ONCE SET!
+            provider: facebook
+            client_id: '545755943418588' # Replace this with the OAuth2 Client ID provided by Facebook app
+            client_secret: fb717b8da03788dfe5d22e355ee4de2c # Replace this with the OAuth2 Client Secret provided by Facebook app
+            # https://guardian.els.com/kratos/self-service/methods/oidc/callback/facebook for facebook redirect
+            mapper_url: file:///etc/config/oidc.facebook.jsonnet
+            scope:
+              - email # required for email and email_verified claims in the near future
+                # other supported scopes: user_gender, user_birthday
+            requested_claims:
+              id_token:
+                email:
+                  essential: true
+                email_verified:
+                  essential: true
+                given_name:
+                  essential: true
+                family_name: null
+                hd: null # If you want the G Suite domain
+
+    profile:
+      enabled: true
+
+    link:
+      enabled: true
+      config:
+        # Defines how long the verification or the recovery link is valid for (default 1h)
+        lifespan: 60m
+
+  flows:
+    error:
+    # TODO: need make page for default error
+      ui_url: https://guardian.els.com/error
+    login:
+      ui_url: https://guardian.els.com/login
+      after:
+        default_browser_return_url: https://app.els.com
+        # password:
+        #   hooks:
+        #     - hook: revoke_active_sessions
+
+            # prevent login if haven't been verify email
+            # - hook: require_verified_address
+
+    verification:
+      enabled: true
+      # Defines how long the verification flow (the UI interaction, not the link!)
+      # is valid for (default 1h)
+      lifespan: 15m
+      ui_url: https://guardian.els.com/verification
+      # return url after verify success!
+      after:
+        default_browser_return_url: https://app.els.com/settings
+
+    recovery:
+      enabled: true
+      # redirect when recovery link expired!
+      ui_url: https://guardian.els.com/recovery
+      after:
+        # current not working because change password by client api
+        default_browser_return_url:  https://guardian.els.com
+
+      # Defines how long a recovery flow (the UI interaction, not the link!)
+      # is valid for (default 1h)
+      # lifespan: 15m
+
+    settings:
+      # Sessions older than a minute requires the user to sign in again before
+      # the password is changed.
+      privileged_session_max_age: 2400h
+
+      # redirect when user click the link in email success!
+      ui_url: https://app.els.com/settings
+      after:
+        default_browser_return_url: https://app.els.com/settings
+
+    registration:
+      ui_url: https://guardian.els.com/registration
+      after:
+        default_browser_return_url: https://app.els.com
+        oidc:
+          hooks:
+            # signing the user in directly after registration
+            - hook: web_hook
+              config:
+                url: http://172.17.0.1:3000/users/callback
+                # url: https://eov8muefwyi5an8.m.pipedream.net
+                method: POST
+                body: file:///etc/config/body.jsonnet
+                auth:
+                  type: basic_auth
+                  config:
+                    user: 'php'
+                    password: '123'
+            - hook: session
+
+        password:
+          hooks:
+            # signing the user in directly after registration
+            # move to top to trigger when normally register
+            - hook: web_hook
+              config:
+                url: http://172.17.0.1:3000/users/callback
+                # url: https://eov8muefwyi5an8.m.pipedream.net
+                method: POST
+                body: file:///etc/config/body.jsonnet
+                auth:
+                  type: basic_auth
+                  config:
+                    user: 'php'
+                    password: '123'
+            - hook: session
+          
+    logout:
+      after:
+        default_browser_return_url: https://guardian.els.com/login
+hashers:
+  algorithm: bcrypt
+
+serve:
+  public:
+    base_url: https://guardian.els.com/kratos
+    cors:
+      enabled: true
+      debug: true
+      allow_credentials: true
+      options_passthrough: true
+      allowed_origins:
+      - https://*.els.com
+
+      allowed_methods:
+      - POST
+      - GET
+      - PUT
+      - PATCH
+      - DELETE
+      allowed_headers:
+      - Authorization
+      - Cookie
+      - Content-Type
+      - Origin
+      - X-Session-Token
+      exposed_headers:
+      - Content-Type
+      - Set-Cookie
+
+  admin:
+    base_url: http://127.0.0.1:4434/
+
+session:
+  lifespan: 2400h
+
+
+cookies:
+  # need fix share cookie
+  # domain: '.els.com'
+  domain: '.els.com'
+  path: /
+  same_site: Lax
+
+## tracing ##
+# tracing:
+#   service_name: Ory Kratos
+
+#   providers:
+#     zipkin:
+#       server_url: http://zipkin:9411/api/v2/spans
+
+log:
+  # One of:
+  # - trace
+  # - debug
+  # - info
+  # - warning
+  # - error
+  # - fatal
+  # - panic
+  level: debug
+
+  format: json
+  leak_sensitive_values: true
+
+courier:
+  ## SMTP Configuration ##
+  # Configures outgoing emails using the SMTP protocol.
+  smtp:
+    # connection_uri: smtps://username:password@smtp-server:port/
+    connection_uri: smtp://AKIAZM4V7ZVPUQLIQ552:BJqb3M9elEGB7U3hgJNHjmiulYFXhu+QuZyWneUAaCg8@email-smtp.ap-southeast-1.amazonaws.com:587
+    from_name: PHP Software Team
+    from_address: phpswteam@gmail.com
+
+secrets:
+  default:
+    - ipsumipsumipsumi
+

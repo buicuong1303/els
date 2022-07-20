@@ -1,0 +1,172 @@
+version: '3.7'
+
+services:
+  client-app:
+    image: els/base
+    build:
+      context: .
+      dockerfile: .deploy/dev/Dockerfile
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - 4200:4200
+    env_file:
+      - .env
+    command: nx serve client-app
+    # command: [sh, -c, "nx build client-app && nx serve client-app --prod"]
+
+  client-guardian:
+    image: els/base
+    build:
+      context: .
+      dockerfile: .deploy/dev/Dockerfile
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - 4201:4200
+    env_file:
+      - .env
+    command: nx serve client-guardian
+    # command: [sh, -c, "nx build client-guardian && nx serve client-guardian --prod"]
+
+  server-learning:
+    image: els/base
+    build:
+      context: .
+      dockerfile: .deploy/dev/Dockerfile
+    volumes:
+      - ./:/usr/src/app
+    env_file:
+      - .env
+    environment:
+      - PORT=3000
+      - TZ=America/Los_Angeles
+    ports:
+      - 3000:3000
+    command: nx serve server-learning
+
+  server-dictionary:
+    image: els/base
+    build:
+      context: .
+      dockerfile: .deploy/dev/Dockerfile
+    volumes:
+      - ./:/usr/src/app
+    env_file:
+      - .env
+    environment:
+      - PORT=3000
+    ports:
+      - 3001:3000
+    command: nx serve server-dictionary
+
+  server-gfg:
+    image: els/base
+    build:
+      context: .
+      dockerfile: .deploy/dev/Dockerfile
+    volumes:
+      - ./:/usr/src/app
+    env_file:
+      - .env
+    environment:
+      - PORT=3000
+    ports:
+      - 3003:3000
+    command: nx serve server-graphql-federation-gateway
+
+  server-guardian:
+    image: els/base
+    build:
+      context: .
+      dockerfile: .deploy/dev/Dockerfile
+    volumes:
+      - ./:/usr/src/app
+    env_file:
+      - .env
+    environment:
+      - PORT=3000
+    ports:
+      - 3002:3000
+    command: nx serve server-guardian
+
+  graphql-engine:
+    image: hasura/graphql-engine:v2.7.0
+    # build:
+    #   context: .
+    #   dockerfile: .deploy/dev/Dockerfile
+    depends_on:
+      - postgres
+    environment:
+      ## postgres database to store Hasura metadata
+      HASURA_GRAPHQL_METADATA_DATABASE_URL: postgres://postgres:postgres@postgres:5432/els
+      ## this env var can be used to add the above postgres database to Hasura as a data source. this can be removed/updated based on your needs
+      PG_DATABASE_URL: postgres://postgres:postgres@postgres:5432/els
+      ## enable the console served by server
+      HASURA_GRAPHQL_ENABLE_CONSOLE: "true" # set to "false" to disable console
+      ## enable debugging mode. It is recommended to disable this in production
+      HASURA_GRAPHQL_DEV_MODE: "true"
+      HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
+      ## uncomment next line to set an admin secret
+      HASURA_GRAPHQL_ADMIN_SECRET: Jus1818!
+      HASURA_GRAPHQL_AUTH_HOOK: http://guardian:3000/authenticate
+      HASURA_GRAPHQL_AUTH_HOOK_MODE: POST
+    ports:
+      - 8080:8080
+
+  server-notification:
+    image: els/base
+    build:
+      context: .
+      dockerfile: .deploy/dev/Dockerfile
+    volumes:
+      - ./:/usr/src/app
+    env_file:
+      - .env
+    environment:
+      - PORT=3000
+    ports:
+      - 3004:3000
+    command: nx serve server-notification
+
+  server-worker:
+    image: els/base
+    build:
+      context: .
+      dockerfile: .deploy/dev/Dockerfile
+    volumes:
+      - ./:/usr/src/app
+    env_file:
+      - .env
+    environment:
+      - PORT=3000
+    ports:
+      - 3005:3000
+    command: nx serve server-worker
+
+  redis:
+    ports:
+      - 6379:6379
+    command: [sh, -c, "rm -f /data/dump.rdb && redis-server --requirepass redis"]
+
+  postgres:
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_MULTIPLE_DATABASES=kratos,hydra,els
+      - TZ=America/Los_Angeles
+    command:
+      - "postgres"
+      - "-c"
+      - "wal_level=logical"
+
+  mongo:
+    ports:
+      - 27017:27017
+
+  rabbitmq:
+    ports:
+      - 5672:5672
+      - 15672:15672
+    env_file:
+      - .env

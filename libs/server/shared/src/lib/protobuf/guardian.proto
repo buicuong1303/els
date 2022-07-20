@@ -1,0 +1,42 @@
+import "google/protobuf/empty.proto";
+
+syntax = "proto3";
+
+package els.srv.guardian;
+
+message AuthenticateRequest {
+  string sessionToken =  1;
+  string sessionCookie =  2;
+}
+
+message AuthenticateResponse {
+  string id = 1;
+  string firstName = 2;
+  string middleName = 3;
+  string lastName = 4;
+  string username = 5;
+  string email = 6;
+  string phone = 7;
+  string picture = 8;
+}
+
+message GetIdentityRequest {
+  string id = 1;
+}
+message GetIdentityResponse {
+  string id = 1;
+  string firstName = 2;
+  string middleName = 3;
+  string lastName = 4;
+  string picture = 5;
+}
+
+message GetIdentitiesResponse {
+  repeated GetIdentityResponse identities = 2;
+}
+service GuardianService {
+  rpc Authenticate(AuthenticateRequest) returns (AuthenticateResponse) {}
+  rpc GetIdentity(GetIdentityRequest) returns (GetIdentityResponse) {}
+  rpc GetIdentities(google.protobuf.Empty) returns (stream GetIdentitiesResponse) {}
+}
+

@@ -1,0 +1,23 @@
+{
+  "root": "libs/server/dictionary/common",
+  "sourceRoot": "libs/server/dictionary/common/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/server/dictionary/common/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/server/dictionary/common"],
+      "options": {
+        "jestConfig": "libs/server/dictionary/common/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

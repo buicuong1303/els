@@ -1,0 +1,12 @@
+{
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs",
+      "esModuleInterop": true
+    }
+  },
+  "typeRoots": [
+    "./types",
+    "./node_modules/@types"
+  ]
+}

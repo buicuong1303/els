@@ -1,0 +1,23 @@
+{
+  "root": "libs/server/worker/amqp",
+  "sourceRoot": "libs/server/worker/amqp/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/server/worker/amqp/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/server/worker/amqp"],
+      "options": {
+        "jestConfig": "libs/server/worker/amqp/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

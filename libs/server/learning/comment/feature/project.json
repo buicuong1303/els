@@ -1,0 +1,23 @@
+{
+  "root": "libs/server/learning/comment/feature",
+  "sourceRoot": "libs/server/learning/comment/feature/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/server/learning/comment/feature/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/server/learning/comment/feature"],
+      "options": {
+        "jestConfig": "libs/server/learning/comment/feature/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,25 @@
+{
+  "root": "libs/server/dictionary/phrase/data-access/type",
+  "sourceRoot": "libs/server/dictionary/phrase/data-access/type/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/server/dictionary/phrase/data-access/type/**/*.ts"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/server/dictionary/phrase/data-access/type"],
+      "options": {
+        "jestConfig": "libs/server/dictionary/phrase/data-access/type/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

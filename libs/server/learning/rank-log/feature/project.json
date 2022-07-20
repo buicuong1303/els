@@ -1,0 +1,23 @@
+{
+  "root": "libs/server/learning/rank-log/feature",
+  "sourceRoot": "libs/server/learning/rank-log/feature/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/server/learning/rank-log/feature/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/server/learning/rank-log/feature"],
+      "options": {
+        "jestConfig": "libs/server/learning/rank-log/feature/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

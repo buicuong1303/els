@@ -1,0 +1,25 @@
+{
+  "root": "libs/client/app/shared/components",
+  "sourceRoot": "libs/client/app/shared/components/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/client/app/shared/components/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/client/app/shared/components"],
+      "options": {
+        "jestConfig": "libs/client/app/shared/components/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

@@ -1,0 +1,1 @@
+export * from './schedule-notification.config';

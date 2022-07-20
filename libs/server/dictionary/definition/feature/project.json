@@ -1,0 +1,25 @@
+{
+  "root": "libs/server/dictionary/definition/feature",
+  "sourceRoot": "libs/server/dictionary/definition/feature/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/server/dictionary/definition/feature/**/*.ts"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/server/dictionary/definition/feature"],
+      "options": {
+        "jestConfig": "libs/server/dictionary/definition/feature/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

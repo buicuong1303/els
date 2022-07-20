@@ -1,0 +1,23 @@
+{
+  "root": "libs/client/admin/shared/ui",
+  "sourceRoot": "libs/client/admin/shared/ui/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/client/admin/shared/ui/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/client/admin/shared/ui"],
+      "options": {
+        "jestConfig": "libs/client/admin/shared/ui/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

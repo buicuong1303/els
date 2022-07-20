@@ -1,0 +1,23 @@
+{
+  "root": "libs/server/learning/grpc",
+  "sourceRoot": "libs/server/learning/grpc/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/server/learning/grpc/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/server/learning/grpc"],
+      "options": {
+        "jestConfig": "libs/server/learning/grpc/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

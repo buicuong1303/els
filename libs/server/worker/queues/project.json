@@ -1,0 +1,23 @@
+{
+  "root": "libs/server/worker/queues",
+  "sourceRoot": "libs/server/worker/queues/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/server/worker/queues/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/server/worker/queues"],
+      "options": {
+        "jestConfig": "libs/server/worker/queues/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

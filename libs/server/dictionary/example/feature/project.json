@@ -1,0 +1,23 @@
+{
+  "root": "libs/server/dictionary/example/feature",
+  "sourceRoot": "libs/server/dictionary/example/feature/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/server/dictionary/example/feature/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/server/dictionary/example/feature"],
+      "options": {
+        "jestConfig": "libs/server/dictionary/example/feature/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

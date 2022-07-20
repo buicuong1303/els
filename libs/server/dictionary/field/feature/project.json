@@ -1,0 +1,23 @@
+{
+  "root": "libs/server/dictionary/field/feature",
+  "sourceRoot": "libs/server/dictionary/field/feature/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/server/dictionary/field/feature/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/server/dictionary/field/feature"],
+      "options": {
+        "jestConfig": "libs/server/dictionary/field/feature/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

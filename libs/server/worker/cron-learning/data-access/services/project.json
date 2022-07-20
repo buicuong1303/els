@@ -1,0 +1,27 @@
+{
+  "root": "libs/server/worker/cron-learning/data-access/services",
+  "sourceRoot": "libs/server/worker/cron-learning/data-access/services/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/server/worker/cron-learning/data-access/services/**/*.ts"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/libs/server/worker/cron-learning/data-access/services"
+      ],
+      "options": {
+        "jestConfig": "libs/server/worker/cron-learning/data-access/services/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

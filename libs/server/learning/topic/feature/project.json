@@ -1,0 +1,23 @@
+{
+  "root": "libs/server/learning/topic/feature",
+  "sourceRoot": "libs/server/learning/topic/feature/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/server/learning/topic/feature/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/server/learning/topic/feature"],
+      "options": {
+        "jestConfig": "libs/server/learning/topic/feature/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

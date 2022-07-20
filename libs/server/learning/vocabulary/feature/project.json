@@ -1,0 +1,23 @@
+{
+  "root": "libs/server/learning/vocabulary/feature",
+  "sourceRoot": "libs/server/learning/vocabulary/feature/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/server/learning/vocabulary/feature/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/server/learning/vocabulary/feature"],
+      "options": {
+        "jestConfig": "libs/server/learning/vocabulary/feature/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

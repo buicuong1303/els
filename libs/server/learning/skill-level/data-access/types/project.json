@@ -1,0 +1,27 @@
+{
+  "root": "libs/server/learning/skill-level/data-access/types",
+  "sourceRoot": "libs/server/learning/skill-level/data-access/types/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/server/learning/skill-level/data-access/types/**/*.ts"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/libs/server/learning/skill-level/data-access/types"
+      ],
+      "options": {
+        "jestConfig": "libs/server/learning/skill-level/data-access/types/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,23 @@
+{
+  "root": "libs/server/notification/grpc",
+  "sourceRoot": "libs/server/notification/grpc/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/server/notification/grpc/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/server/notification/grpc"],
+      "options": {
+        "jestConfig": "libs/server/notification/grpc/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

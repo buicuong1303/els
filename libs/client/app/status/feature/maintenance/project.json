@@ -1,0 +1,25 @@
+{
+  "root": "libs/client/app/status/feature/maintenance",
+  "sourceRoot": "libs/client/app/status/feature/maintenance/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/client/app/status/feature/maintenance/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/client/app/status/feature/maintenance"],
+      "options": {
+        "jestConfig": "libs/client/app/status/feature/maintenance/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

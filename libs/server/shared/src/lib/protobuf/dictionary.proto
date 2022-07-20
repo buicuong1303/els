@@ -1,0 +1,19 @@
+
+syntax = "proto3";
+
+package els.srv.dictionary;
+
+message GetReferenceRequest {
+  string vocabulary = 1;
+  string langCode = 2;
+  string pos = 3;
+}
+message GetReferenceResponse {
+  string referenceId = 1;
+  string phonetic = 2;
+  string audioUri = 3;
+  string type = 4;
+}
+service DictionaryService {
+  rpc GetReference(GetReferenceRequest) returns (GetReferenceResponse) {}
+}

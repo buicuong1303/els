@@ -1,0 +1,23 @@
+{
+  "root": "libs/server/dictionary/pos/feature",
+  "sourceRoot": "libs/server/dictionary/pos/feature/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/server/dictionary/pos/feature/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/server/dictionary/pos/feature"],
+      "options": {
+        "jestConfig": "libs/server/dictionary/pos/feature/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

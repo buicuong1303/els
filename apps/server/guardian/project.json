@@ -1,0 +1,52 @@
+{
+  "root": "apps/server/guardian",
+  "sourceRoot": "apps/server/guardian/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/server/guardian",
+        "main": "apps/server/guardian/src/main.ts",
+        "tsConfig": "apps/server/guardian/tsconfig.app.json",
+        "assets": ["apps/server/guardian/src/assets"]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/server/guardian/src/environments/environment.ts",
+              "with": "apps/server/guardian/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:execute",
+      "options": {
+        "buildTarget": "server-guardian:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/server/guardian/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/server/guardian"],
+      "options": {
+        "jestConfig": "apps/server/guardian/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

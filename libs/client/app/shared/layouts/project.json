@@ -1,0 +1,25 @@
+{
+  "root": "libs/client/app/shared/layouts",
+  "sourceRoot": "libs/client/app/shared/layouts/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/client/app/shared/layouts/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/client/app/shared/layouts"],
+      "options": {
+        "jestConfig": "libs/client/app/shared/layouts/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

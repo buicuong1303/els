@@ -1,0 +1,23 @@
+{
+  "root": "libs/client/guardian/ui",
+  "sourceRoot": "libs/client/guardian/ui/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/client/guardian/ui/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/client/guardian/ui"],
+      "options": {
+        "jestConfig": "libs/client/guardian/ui/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

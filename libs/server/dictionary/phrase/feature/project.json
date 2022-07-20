@@ -1,0 +1,23 @@
+{
+  "root": "libs/server/dictionary/phrase/feature",
+  "sourceRoot": "libs/server/dictionary/phrase/feature/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/server/dictionary/phrase/feature/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/server/dictionary/phrase/feature"],
+      "options": {
+        "jestConfig": "libs/server/dictionary/phrase/feature/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

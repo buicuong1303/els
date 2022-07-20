@@ -1,0 +1,23 @@
+{
+  "root": "libs/server/guardian/form/feature",
+  "sourceRoot": "libs/server/guardian/form/feature/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/server/guardian/form/feature/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/server/guardian/form/feature"],
+      "options": {
+        "jestConfig": "libs/server/guardian/form/feature/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

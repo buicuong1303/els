@@ -1,0 +1,25 @@
+{
+  "root": "libs/client/app/dashboard/feature",
+  "sourceRoot": "libs/client/app/dashboard/feature/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/client/app/dashboard/feature/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/client/app/dashboard/feature"],
+      "options": {
+        "jestConfig": "libs/client/app/dashboard/feature/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

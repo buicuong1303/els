@@ -1,0 +1,23 @@
+{
+  "root": "libs/server/guardian/common",
+  "sourceRoot": "libs/server/guardian/common/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/server/guardian/common/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/server/guardian/common"],
+      "options": {
+        "jestConfig": "libs/server/guardian/common/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

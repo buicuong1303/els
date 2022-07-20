@@ -1,0 +1,25 @@
+{
+  "root": "libs/server/learning/topic/data-access/services",
+  "sourceRoot": "libs/server/learning/topic/data-access/services/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/server/learning/topic/data-access/services/**/*.ts"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/server/learning/topic/data-access/services"],
+      "options": {
+        "jestConfig": "libs/server/learning/topic/data-access/services/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,25 @@
+{
+  "root": "libs/client/app/quick-test/feature",
+  "sourceRoot": "libs/client/app/quick-test/feature/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/client/app/quick-test/feature/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/client/app/quick-test/feature"],
+      "options": {
+        "jestConfig": "libs/client/app/quick-test/feature/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

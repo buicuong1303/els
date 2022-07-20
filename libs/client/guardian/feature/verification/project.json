@@ -1,0 +1,25 @@
+{
+  "root": "libs/client/guardian/feature/verification",
+  "sourceRoot": "libs/client/guardian/feature/verification/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/client/guardian/feature/verification/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/client/guardian/feature/verification"],
+      "options": {
+        "jestConfig": "libs/client/guardian/feature/verification/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

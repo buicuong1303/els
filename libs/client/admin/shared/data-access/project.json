@@ -1,0 +1,23 @@
+{
+  "root": "libs/client/admin/shared/data-access",
+  "sourceRoot": "libs/client/admin/shared/data-access/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/client/admin/shared/data-access/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/client/admin/shared/data-access"],
+      "options": {
+        "jestConfig": "libs/client/admin/shared/data-access/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,23 @@
+{
+  "root": "libs/server/learning/wordbook/feature",
+  "sourceRoot": "libs/server/learning/wordbook/feature/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/server/learning/wordbook/feature/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/server/learning/wordbook/feature"],
+      "options": {
+        "jestConfig": "libs/server/learning/wordbook/feature/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

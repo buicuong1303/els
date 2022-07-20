@@ -1,0 +1,25 @@
+{
+  "root": "libs/server/notification/user/data-access/types",
+  "sourceRoot": "libs/server/notification/user/data-access/types/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/server/notification/user/data-access/types/**/*.ts"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/server/notification/user/data-access/types"],
+      "options": {
+        "jestConfig": "libs/server/notification/user/data-access/types/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

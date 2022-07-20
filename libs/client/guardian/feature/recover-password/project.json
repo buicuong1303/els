@@ -1,0 +1,25 @@
+{
+  "root": "libs/client/guardian/feature/recover-password",
+  "sourceRoot": "libs/client/guardian/feature/recover-password/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/client/guardian/feature/recover-password/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/client/guardian/feature/recover-password"],
+      "options": {
+        "jestConfig": "libs/client/guardian/feature/recover-password/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "root": "libs/client/app/status/feature/error-500",
+  "sourceRoot": "libs/client/app/status/feature/error-500/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/client/app/status/feature/error-500/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/client/app/status/feature/error-500"],
+      "options": {
+        "jestConfig": "libs/client/app/status/feature/error-500/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

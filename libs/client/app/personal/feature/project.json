@@ -1,0 +1,25 @@
+{
+  "root": "libs/client/app/personal/feature",
+  "sourceRoot": "libs/client/app/personal/feature/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/client/app/personal/feature/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/client/app/personal/feature"],
+      "options": {
+        "jestConfig": "libs/client/app/personal/feature/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "root": "libs/server/notification/firebase/feature",
+  "sourceRoot": "libs/server/notification/firebase/feature/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/server/notification/firebase/feature/**/*.ts"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/server/notification/firebase/feature"],
+      "options": {
+        "jestConfig": "libs/server/notification/firebase/feature/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

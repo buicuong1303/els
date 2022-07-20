@@ -1,0 +1,25 @@
+{
+  "root": "libs/server/graphql-federation-gateway/core",
+  "sourceRoot": "libs/server/graphql-federation-gateway/core/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/server/graphql-federation-gateway/core/**/*.ts"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/server/graphql-federation-gateway/core"],
+      "options": {
+        "jestConfig": "libs/server/graphql-federation-gateway/core/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

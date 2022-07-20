@@ -1,0 +1,25 @@
+{
+  "root": "libs/client/guardian/feature/error",
+  "sourceRoot": "libs/client/guardian/feature/error/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/client/guardian/feature/error/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/client/guardian/feature/error"],
+      "options": {
+        "jestConfig": "libs/client/guardian/feature/error/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

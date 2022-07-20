@@ -1,0 +1,25 @@
+{
+  "root": "libs/server/learning/user/data-access/enums",
+  "sourceRoot": "libs/server/learning/user/data-access/enums/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/server/learning/user/data-access/enums/**/*.ts"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/server/learning/user/data-access/enums"],
+      "options": {
+        "jestConfig": "libs/server/learning/user/data-access/enums/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

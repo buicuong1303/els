@@ -1,0 +1,259 @@
+version: '3.7'
+
+services:
+  client-app:
+    container_name: els-app
+    hostname: app
+    networks:
+      - els
+
+  client-guardian:
+    container_name: els-guardian-ui
+    hostname: guardian
+    networks:
+      - els
+
+  server-learning:
+    container_name: els-learning
+    hostname: learning
+    networks:
+      - els
+
+  server-dictionary:
+    container_name: els-dictionary
+    hostname: dictionary
+    networks:
+      - els
+    env_file:
+      - .env
+
+  server-guardian:
+    container_name: els-guardian
+    hostname: guardian
+    networks:
+      - els
+
+  server-notification:
+    container_name: els-notification
+    hostname: notification
+    networks:
+      - els
+
+  server-gfg:
+    container_name: els-graphql-federation-gateway
+    hostname: graphql-federation-gateway
+    networks:
+      - els
+    env_file:
+      - .env
+
+  server-worker:
+    container_name: els-worker
+    hostname: worker
+    networks:
+      - els
+    env_file:
+      - .env
+
+  graphql-engine:
+    container_name: els-hasura
+    hostname: hasura
+    networks:
+      - els
+    restart: always
+  # hydra-migrate:
+  #   image: oryd/hydra:v1.10.6
+  #   container_name: els-hydra-migrate
+  #   hostname: hydra-migrate
+  #   environment:
+  #     - DSN=postgres://postgres:postgres@postgres:5432/hydra?sslmode=disable
+  #     # protocol - username - password - host
+  #   command:
+  #     migrate -c /etc/config/hydra/hydra.yml sql -e --yes
+  #   restart: on-failure
+  #   networks:
+  #     - els
+
+  # hydra:
+  #   image: oryd/hydra:v1.10.6
+  #   container_name: els-hydra
+  #   hostname: hydra
+  #   depends_on:
+  #     - hydra-migrate
+  #     - zipkin
+  #   ports:
+  #     - "4444:4444" # Public port
+  #     - "4445:4445" # Admin port
+  #     - "5555:5555" # Port for hydra token user
+  #   command:
+  #     serve -c /etc/config/hydra/hydra.yml all --dangerous-force-http
+  #   restart: on-failure # TODO figure out why we need this (incorporate health check into hydra migrate command?)
+  #   environment:
+  #     - LOG_LEAK_SENSITIVE_VALUES=true
+  #     # - URLS_SELF_ISSUER=http://127.0.0.1:4444
+  #     # - URLS_SELF_PUBLIC=http://127.0.0.1:4444
+  #     # - URLS_CONSENT=http://127.0.0.1:3000/auth/hydra/consent
+  #     # - URLS_LOGIN=http://127.0.0.1:3000/auth/hydra/login
+  #     # - URLS_LOGOUT=http://127.0.0.1:3000/logout
+  #     # - SECRETS_SYSTEM=youReallyNeedToChangeThis
+  #     # - OIDC_SUBJECT_IDENTIFIERS_SUPPORTED_TYPES=public,pairwise
+  #     # - OIDC_SUBJECT_IDENTIFIERS_PAIRWISE_SALT=youReallyNeedToChangeThis
+  #     - DSN=postgres://postgres:postgres@postgres:5432/hydra?sslmode=disable
+
+  #     - TRACING_PROVIDER=zipkin
+  #     - TRACING_PROVIDERS_ZIPKIN_SERVER_URL=http://zipkin:9411/api/v2/spans
+
+  #   networks:
+  #     - els
+
+  kratos-migrate:
+    image: oryd/kratos:v0.10.1
+    container_name: els-kratos-migrate
+    hostname: kratos-migrate
+    depends_on:
+      - postgres
+    environment:
+      - DSN=postgres://postgres:postgres@postgres:5432/kratos?sslmode=disable&max_conns=20&max_idle_conns=4
+    volumes:
+      -
+        type: bind
+        source: ./.deploy/dev/ory/
+        target: /etc/config/
+    command:
+      -c /etc/config/kratos.yml migrate sql -e --yes
+    restart: on-failure
+    networks:
+      - els
+
+  kratos:
+    image: oryd/kratos:v0.10.1
+    container_name: els-kratos
+    hostname: kratos
+    depends_on:
+      - kratos-migrate
+      - postgres
+    ports:
+      - "4433:4433" # public
+      - "4434:4434" # admin
+    restart: unless-stopped
+    environment:
+      - DSN=postgres://postgres:postgres@postgres:5432/kratos?sslmode=disable&max_conns=20&max_idle_conns=4
+    command:
+      serve -c /etc/config/kratos.yml --dev --watch-courier
+    volumes:
+      -
+        type: bind
+        source: ./.deploy/dev/ory/
+        target: /etc/config/
+    networks:
+      - els
+
+  # zipkin:
+  #   image: openzipkin/zipkin:2
+  #   container_name: els-zipkin
+  #   hostname: zipkin
+  #   environment:
+  #    - STORAGE_TYPE=mem
+  #   ports:
+  #    - "9411:9411" # The UI/API port
+  #   networks:
+  #     - els
+
+  postgres:
+    image: postgres:9.6
+    container_name: els-postgres
+    hostname: postgres
+    networks:
+      - els
+    volumes:
+      - postgres:/var/lib/postgresql/data
+      - ./scripts/pg-init:/docker-entrypoint-initdb.d
+      - ./.deploy/dev/postgres/unaccent.rules:/usr/share/postgresql/9.6/tsearch_data/unaccent.rules
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_PORT=5432
+      - PG_DATA=/var/lib/postgresql/data
+    # env_file:
+    #   - .env
+
+  mongo:
+    image: mongo:4.4
+    container_name: els-mongo
+    hostname: mongo
+    networks:
+      - els
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=mongo
+      - MONGO_INITDB_DATABASE=els
+    volumes:
+      - mongo:/data/db
+      # - ./scripts/mongo-init:/docker-entrypoint-initdb.d
+
+  redis:
+    image: redis:alpine
+    container_name: els-redis
+    hostname: redis
+    volumes:
+      - redis:/data
+    networks:
+      - els
+
+  nginx:
+    image: nginx:latest
+    container_name: els-nginx
+    volumes:
+      - ./.deploy/dev/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./.deploy/dev/nginx/ssl:/etc/nginx/ssl
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - els
+    command: /bin/sh -c "while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g 'daemon off;'"
+
+  minio:
+    image: minio/minio:RELEASE.2022-04-26T01-20-24Z
+    container_name: els-minio
+    hostname: minio
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      - MINIO_ROOT_USER=minio
+      - MINIO_ROOT_PASSWORD=minio123
+      - MINIO_API_CORS_ALLOW_ORIGIN=https://app.els.com
+    command: server --console-address :9001 /data
+    networks:
+      - els
+    volumes:
+      - minio:/data
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: els-rabbitmq
+    hostname: rabbitmq
+    networks:
+      - els
+    volumes:
+      # - php_text_message-rabbitmq-data/etc:/var/etc/rabbitmq
+      # - php_text_message-rabbitmq-data/data:/var/lib/rabbitmq
+      # - php_text_message-rabbitmq-data/logs:/var/log/rabbitmq
+      - rabbitmq:/var/lib/rabbitmq
+
+networks:
+  els:
+    name: els
+
+volumes:
+  redis:
+    name: els-redis
+  postgres:
+    name: els-postgres
+  mongo:
+    name: els-mongo
+  minio:
+    name: els-minio
+  rabbitmq:
+    name: els-rabbitmq

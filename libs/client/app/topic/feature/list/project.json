@@ -1,0 +1,25 @@
+{
+  "root": "libs/client/app/topic/feature/list",
+  "sourceRoot": "libs/client/app/topic/feature/list/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/client/app/topic/feature/list/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/client/app/topic/feature/list"],
+      "options": {
+        "jestConfig": "libs/client/app/topic/feature/list/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

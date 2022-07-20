@@ -1,0 +1,23 @@
+{
+  "root": "libs/server/dictionary/concept/feature",
+  "sourceRoot": "libs/server/dictionary/concept/feature/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/server/dictionary/concept/feature/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/server/dictionary/concept/feature"],
+      "options": {
+        "jestConfig": "libs/server/dictionary/concept/feature/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

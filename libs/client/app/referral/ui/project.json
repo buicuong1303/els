@@ -1,0 +1,23 @@
+{
+  "root": "libs/client/app/referral/ui",
+  "sourceRoot": "libs/client/app/referral/ui/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/client/app/referral/ui/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/client/app/referral/ui"],
+      "options": {
+        "jestConfig": "libs/client/app/referral/ui/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

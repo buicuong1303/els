@@ -1,0 +1,822 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@els/client-app-personal-data-access": [
+        "libs/client/app/personal/data-access/src/index.ts"
+      ],
+      "@els/client-app-personal-feature": [
+        "libs/client/app/personal/feature/src/index.ts"
+      ],
+      "@els/client-app-personal-ui": [
+        "libs/client/app/personal/ui/src/index.ts"
+      ],
+      "@els/client-guardian-feature-login": [
+        "libs/client/guardian/feature/login/src/index.ts"
+      ],
+      "@els/client-guardian-feature-recover-password": [
+        "libs/client/guardian/feature/recover-password/src/index.ts"
+      ],
+      "@els/client-guardian-feature-register": [
+        "libs/client/guardian/feature/register/src/index.ts"
+      ],
+      "@els/client-guardian-feature-reset-password": [
+        "libs/client/guardian/feature/reset-password/src/index.ts"
+      ],
+      "@els/client-guardian-ui": ["libs/client/guardian/ui/src/index.ts"],
+      "@els/client-shared-hooks": ["libs/client/shared/hooks/src/index.ts"],
+      "@els/client-shared-i18n": ["libs/client/shared/i18n/src/index.ts"],
+      "@els/client-shared-theme": ["libs/client/shared/theme/src/index.ts"],
+      "@els/client/admin/shared/data-access": [
+        "libs/client/admin/shared/data-access/src/index.ts"
+      ],
+      "@els/client/admin/shared/data-access/graphql/mutations": [
+        "libs/client/admin/shared/data-access/graphql/mutations/src/index.ts"
+      ],
+      "@els/client/admin/shared/data-access/graphql/queries": [
+        "libs/client/admin/shared/data-access/graphql/queries/src/index.ts"
+      ],
+      "@els/client/admin/shared/ui": [
+        "libs/client/admin/shared/ui/src/index.ts"
+      ],
+      "@els/client/admin/shared/utils": [
+        "libs/client/admin/shared/utils/src/index.ts"
+      ],
+      "@els/client/admin/shell": ["libs/client/admin/shell/src/index.ts"],
+      "@els/client/app/attendance/feature": [
+        "libs/client/app/attendance/feature/src/index.ts"
+      ],
+      "@els/client/app/attendance/ui": [
+        "libs/client/app/attendance/ui/src/index.ts"
+      ],
+      "@els/client/app/dashboard/data-access": [
+        "libs/client/app/dashboard/data-access/src/index.ts"
+      ],
+      "@els/client/app/dashboard/feature": [
+        "libs/client/app/dashboard/feature/src/index.ts"
+      ],
+      "@els/client/app/dashboard/ui": [
+        "libs/client/app/dashboard/ui/src/index.ts"
+      ],
+      "@els/client/app/home-page/data-access": [
+        "libs/client/app/home-page/data-access/src/index.ts"
+      ],
+      "@els/client/app/home-page/feature": [
+        "libs/client/app/home-page/feature/src/index.ts"
+      ],
+      "@els/client/app/home-page/ui": [
+        "libs/client/app/home-page/ui/src/index.ts"
+      ],
+      "@els/client/app/mission/feature": [
+        "libs/client/app/mission/feature/src/index.ts"
+      ],
+      "@els/client/app/mission/ui": ["libs/client/app/mission/ui/src/index.ts"],
+      "@els/client/app/notification/feature": [
+        "libs/client/app/notification/feature/src/index.ts"
+      ],
+      "@els/client/app/notification/ui": [
+        "libs/client/app/notification/ui/src/index.ts"
+      ],
+      "@els/client/app/quick-test/feature": [
+        "libs/client/app/quick-test/feature/src/index.ts"
+      ],
+      "@els/client/app/quick-test/ui": [
+        "libs/client/app/quick-test/ui/src/index.ts"
+      ],
+      "@els/client/app/referral/feature": [
+        "libs/client/app/referral/feature/src/index.ts"
+      ],
+      "@els/client/app/referral/ui": [
+        "libs/client/app/referral/ui/src/index.ts"
+      ],
+      "@els/client/app/setting/data-access": [
+        "libs/client/app/setting/data-access/src/index.ts"
+      ],
+      "@els/client/app/setting/feature": [
+        "libs/client/app/setting/feature/src/index.ts"
+      ],
+      "@els/client/app/setting/ui": ["libs/client/app/setting/ui/src/index.ts"],
+      "@els/client/app/shared/components": [
+        "libs/client/app/shared/components/src/index.ts"
+      ],
+      "@els/client/app/shared/contexts": [
+        "libs/client/app/shared/contexts/src/index.ts"
+      ],
+      "@els/client/app/shared/data-access": [
+        "libs/client/app/shared/data-access/src/index.ts"
+      ],
+      "@els/client/app/shared/data-access/graphql/mutations": [
+        "libs/client/app/shared/data-access/graphql/mutations/src/index.ts"
+      ],
+      "@els/client/app/shared/data-access/graphql/queries": [
+        "libs/client/app/shared/data-access/graphql/queries/src/index.ts"
+      ],
+      "@els/client/app/shared/layouts": [
+        "libs/client/app/shared/layouts/src/index.ts"
+      ],
+      "@els/client/app/shared/ui": ["libs/client/app/shared/ui/src/index.ts"],
+      "@els/client/app/shared/utils": [
+        "libs/client/app/shared/utils/src/index.ts"
+      ],
+      "@els/client/app/shell": ["libs/client/app/shell/src/index.ts"],
+      "@els/client/app/status/feature/coming-soon": [
+        "libs/client/app/status/feature/coming-soon/src/index.ts"
+      ],
+      "@els/client/app/status/feature/error-401": [
+        "libs/client/app/status/feature/error-401/src/index.ts"
+      ],
+      "@els/client/app/status/feature/error-404": [
+        "libs/client/app/status/feature/error-404/src/index.ts"
+      ],
+      "@els/client/app/status/feature/error-500": [
+        "libs/client/app/status/feature/error-500/src/index.ts"
+      ],
+      "@els/client/app/status/feature/maintenance": [
+        "libs/client/app/status/feature/maintenance/src/index.ts"
+      ],
+      "@els/client/app/status/ui": ["libs/client/app/status/ui/src/index.ts"],
+      "@els/client/app/topic/feature/detail": [
+        "libs/client/app/topic/feature/detail/src/index.ts"
+      ],
+      "@els/client/app/topic/feature/list": [
+        "libs/client/app/topic/feature/list/src/index.ts"
+      ],
+      "@els/client/app/topic/feature/overview": [
+        "libs/client/app/topic/feature/overview/src/index.ts"
+      ],
+      "@els/client/app/topic/ui": ["libs/client/app/topic/ui/src/index.ts"],
+      "@els/client/guardian/data-access": [
+        "libs/client/guardian/data-access/src/index.ts"
+      ],
+      "@els/client/guardian/feature/error": [
+        "libs/client/guardian/feature/error/src/index.ts"
+      ],
+      "@els/client/guardian/feature/verification": [
+        "libs/client/guardian/feature/verification/src/index.ts"
+      ],
+      "@els/client/shared/components": [
+        "libs/client/shared/components/src/index.ts"
+      ],
+      "@els/client/shared/data-access": [
+        "libs/client/shared/data-access/src/index.ts"
+      ],
+      "@els/client/shared/data-access/graphql/mutations": [
+        "libs/client/shared/data-access/graphql/mutations/src/index.ts"
+      ],
+      "@els/client/shared/data-access/graphql/queries": [
+        "libs/client/shared/data-access/graphql/queries/src/index.ts"
+      ],
+      "@els/client/shared/ui": ["libs/client/shared/ui/src/index.ts"],
+      "@els/client/shared/utils": ["libs/client/shared/utils/src/index.ts"],
+      "@els/server-guardian-account-data-access-services": [
+        "libs/server/guardian/account/data-access/services/src/index.ts"
+      ],
+      "@els/server-guardian-account-data-access-types": [
+        "libs/server/guardian/account/data-access/types/src/index.ts"
+      ],
+      "@els/server-guardian-account-feature": [
+        "libs/server/guardian/account/feature/src/index.ts"
+      ],
+      "@els/server-guardian-form-data-access-services": [
+        "libs/server/guardian/form/data-access/services/src/index.ts"
+      ],
+      "@els/server-guardian-form-data-access-types": [
+        "libs/server/guardian/form/data-access/types/src/index.ts"
+      ],
+      "@els/server-guardian-form-feature": [
+        "libs/server/guardian/form/feature/src/index.ts"
+      ],
+      "@els/server-guardian-session-data-access-services": [
+        "libs/server/guardian/session/data-access/services/src/index.ts"
+      ],
+      "@els/server-guardian-session-data-access-types": [
+        "libs/server/guardian/session/data-access/types/src/index.ts"
+      ],
+      "@els/server-guardian-session-feature": [
+        "libs/server/guardian/session/feature/src/index.ts"
+      ],
+      "@els/server/dictionary/common": [
+        "libs/server/dictionary/common/src/index.ts"
+      ],
+      "@els/server/dictionary/concept/data-access/entities": [
+        "libs/server/dictionary/concept/data-access/entities/src/index.ts"
+      ],
+      "@els/server/dictionary/concept/data-access/services": [
+        "libs/server/dictionary/concept/data-access/services/src/index.ts"
+      ],
+      "@els/server/dictionary/concept/data-access/types": [
+        "libs/server/dictionary/concept/data-access/types/src/index.ts"
+      ],
+      "@els/server/dictionary/concept/feature": [
+        "libs/server/dictionary/concept/feature/src/index.ts"
+      ],
+      "@els/server/dictionary/contain/data-access/entities": [
+        "libs/server/dictionary/contain/data-access/entities/src/index.ts"
+      ],
+      "@els/server/dictionary/contain/data-access/services": [
+        "libs/server/dictionary/contain/data-access/services/src/index.ts"
+      ],
+      "@els/server/dictionary/contain/data-access/type": [
+        "libs/server/dictionary/contain/data-access/type/src/index.ts"
+      ],
+      "@els/server/dictionary/contain/feature": [
+        "libs/server/dictionary/contain/feature/src/index.ts"
+      ],
+      "@els/server/dictionary/core": [
+        "libs/server/dictionary/core/src/index.ts"
+      ],
+      "@els/server/dictionary/definition/data-access/entities": [
+        "libs/server/dictionary/definition/data-access/entities/src/index.ts"
+      ],
+      "@els/server/dictionary/definition/data-access/services": [
+        "libs/server/dictionary/definition/data-access/services/src/index.ts"
+      ],
+      "@els/server/dictionary/definition/data-access/types": [
+        "libs/server/dictionary/definition/data-access/types/src/index.ts"
+      ],
+      "@els/server/dictionary/definition/feature": [
+        "libs/server/dictionary/definition/feature/src/index.ts"
+      ],
+      "@els/server/dictionary/detail/data-access/entities": [
+        "libs/server/dictionary/detail/data-access/entities/src/index.ts"
+      ],
+      "@els/server/dictionary/detail/data-access/services": [
+        "libs/server/dictionary/detail/data-access/services/src/index.ts"
+      ],
+      "@els/server/dictionary/detail/feature": [
+        "libs/server/dictionary/detail/feature/src/index.ts"
+      ],
+      "@els/server/dictionary/example-translation/data-access/entities": [
+        "libs/server/dictionary/example-translation/data-access/entities/src/index.ts"
+      ],
+      "@els/server/dictionary/example-translation/data-access/services": [
+        "libs/server/dictionary/example-translation/data-access/services/src/index.ts"
+      ],
+      "@els/server/dictionary/example-translation/data-access/types": [
+        "libs/server/dictionary/example-translation/data-access/types/src/index.ts"
+      ],
+      "@els/server/dictionary/example-translation/feature": [
+        "libs/server/dictionary/example-translation/feature/src/index.ts"
+      ],
+      "@els/server/dictionary/example/data-access/entities": [
+        "libs/server/dictionary/example/data-access/entities/src/index.ts"
+      ],
+      "@els/server/dictionary/example/data-access/services": [
+        "libs/server/dictionary/example/data-access/services/src/index.ts"
+      ],
+      "@els/server/dictionary/example/data-access/types": [
+        "libs/server/dictionary/example/data-access/types/src/index.ts"
+      ],
+      "@els/server/dictionary/example/feature": [
+        "libs/server/dictionary/example/feature/src/index.ts"
+      ],
+      "@els/server/dictionary/field/data-access/entities": [
+        "libs/server/dictionary/field/data-access/entities/src/index.ts"
+      ],
+      "@els/server/dictionary/field/data-access/services": [
+        "libs/server/dictionary/field/data-access/services/src/index.ts"
+      ],
+      "@els/server/dictionary/field/data-access/types": [
+        "libs/server/dictionary/field/data-access/types/src/index.ts"
+      ],
+      "@els/server/dictionary/field/feature": [
+        "libs/server/dictionary/field/feature/src/index.ts"
+      ],
+      "@els/server/dictionary/grpc": [
+        "libs/server/dictionary/grpc/src/index.ts"
+      ],
+      "@els/server/dictionary/join/data-access/entities": [
+        "libs/server/dictionary/join/data-access/entities/src/index.ts"
+      ],
+      "@els/server/dictionary/join/data-access/services": [
+        "libs/server/dictionary/join/data-access/services/src/index.ts"
+      ],
+      "@els/server/dictionary/join/data-access/types": [
+        "libs/server/dictionary/join/data-access/types/src/index.ts"
+      ],
+      "@els/server/dictionary/join/feature": [
+        "libs/server/dictionary/join/feature/src/index.ts"
+      ],
+      "@els/server/dictionary/lang/data-access/entities": [
+        "libs/server/dictionary/lang/data-access/entities/src/index.ts"
+      ],
+      "@els/server/dictionary/lang/data-access/services": [
+        "libs/server/dictionary/lang/data-access/services/src/index.ts"
+      ],
+      "@els/server/dictionary/lang/feature": [
+        "libs/server/dictionary/lang/feature/src/index.ts"
+      ],
+      "@els/server/dictionary/meaning/data-access/entities": [
+        "libs/server/dictionary/meaning/data-access/entities/src/index.ts"
+      ],
+      "@els/server/dictionary/meaning/data-access/services": [
+        "libs/server/dictionary/meaning/data-access/services/src/index.ts"
+      ],
+      "@els/server/dictionary/meaning/feature": [
+        "libs/server/dictionary/meaning/feature/src/index.ts"
+      ],
+      "@els/server/dictionary/phrase-translation/data-access/entities": [
+        "libs/server/dictionary/phrase-translation/data-access/entities/src/index.ts"
+      ],
+      "@els/server/dictionary/phrase-translation/data-access/services": [
+        "libs/server/dictionary/phrase-translation/data-access/services/src/index.ts"
+      ],
+      "@els/server/dictionary/phrase-translation/data-access/type": [
+        "libs/server/dictionary/phrase-translation/data-access/type/src/index.ts"
+      ],
+      "@els/server/dictionary/phrase-translation/feature": [
+        "libs/server/dictionary/phrase-translation/feature/src/index.ts"
+      ],
+      "@els/server/dictionary/phrase/data-access/entities": [
+        "libs/server/dictionary/phrase/data-access/entities/src/index.ts"
+      ],
+      "@els/server/dictionary/phrase/data-access/services": [
+        "libs/server/dictionary/phrase/data-access/services/src/index.ts"
+      ],
+      "@els/server/dictionary/phrase/data-access/type": [
+        "libs/server/dictionary/phrase/data-access/type/src/index.ts"
+      ],
+      "@els/server/dictionary/phrase/feature": [
+        "libs/server/dictionary/phrase/feature/src/index.ts"
+      ],
+      "@els/server/dictionary/pos/data-access/entities": [
+        "libs/server/dictionary/pos/data-access/entities/src/index.ts"
+      ],
+      "@els/server/dictionary/pos/data-access/services": [
+        "libs/server/dictionary/pos/data-access/services/src/index.ts"
+      ],
+      "@els/server/dictionary/pos/feature": [
+        "libs/server/dictionary/pos/feature/src/index.ts"
+      ],
+      "@els/server/dictionary/pronunciation/data-access/entities": [
+        "libs/server/dictionary/pronunciation/data-access/entities/src/index.ts"
+      ],
+      "@els/server/dictionary/pronunciation/data-access/services": [
+        "libs/server/dictionary/pronunciation/data-access/services/src/index.ts"
+      ],
+      "@els/server/dictionary/pronunciation/data-access/types": [
+        "libs/server/dictionary/pronunciation/data-access/types/src/index.ts"
+      ],
+      "@els/server/dictionary/pronunciation/feature": [
+        "libs/server/dictionary/pronunciation/feature/src/index.ts"
+      ],
+      "@els/server/dictionary/sample/data-access/entities": [
+        "libs/server/dictionary/sample/data-access/entities/src/index.ts"
+      ],
+      "@els/server/dictionary/sample/data-access/services": [
+        "libs/server/dictionary/sample/data-access/services/src/index.ts"
+      ],
+      "@els/server/dictionary/sample/data-access/types": [
+        "libs/server/dictionary/sample/data-access/types/src/index.ts"
+      ],
+      "@els/server/dictionary/sample/feature": [
+        "libs/server/dictionary/sample/feature/src/index.ts"
+      ],
+      "@els/server/dictionary/term/data-access/entities": [
+        "libs/server/dictionary/term/data-access/entities/src/index.ts"
+      ],
+      "@els/server/dictionary/term/data-access/services": [
+        "libs/server/dictionary/term/data-access/services/src/index.ts"
+      ],
+      "@els/server/dictionary/term/data-access/type": [
+        "libs/server/dictionary/term/data-access/type/src/index.ts"
+      ],
+      "@els/server/dictionary/term/feature": [
+        "libs/server/dictionary/term/feature/src/index.ts"
+      ],
+      "@els/server/dictionary/word/data-access/entities": [
+        "libs/server/dictionary/word/data-access/entities/src/index.ts"
+      ],
+      "@els/server/dictionary/word/data-access/services": [
+        "libs/server/dictionary/word/data-access/services/src/index.ts"
+      ],
+      "@els/server/dictionary/word/data-access/types": [
+        "libs/server/dictionary/word/data-access/types/src/index.ts"
+      ],
+      "@els/server/dictionary/word/feature": [
+        "libs/server/dictionary/word/feature/src/index.ts"
+      ],
+      "@els/server/graphql-federation-gateway/common": [
+        "libs/server/graphql-federation-gateway/common/src/index.ts"
+      ],
+      "@els/server/graphql-federation-gateway/core": [
+        "libs/server/graphql-federation-gateway/core/src/index.ts"
+      ],
+      "@els/server/guardian/common": [
+        "libs/server/guardian/common/src/index.ts"
+      ],
+      "@els/server/guardian/core": ["libs/server/guardian/core/src/index.ts"],
+      "@els/server/guardian/grpc": ["libs/server/guardian/grpc/src/index.ts"],
+      "@els/server/learning/amqp": ["libs/server/learning/amqp/src/index.ts"],
+      "@els/server/learning/available-mission/data-access/entities": [
+        "libs/server/learning/available-mission/data-access/entities/src/index.ts"
+      ],
+      "@els/server/learning/available-mission/data-access/services": [
+        "libs/server/learning/available-mission/data-access/services/src/index.ts"
+      ],
+      "@els/server/learning/available-mission/data-access/types": [
+        "libs/server/learning/available-mission/data-access/types/src/index.ts"
+      ],
+      "@els/server/learning/category/data-access/entities": [
+        "libs/server/learning/category/data-access/entities/src/index.ts"
+      ],
+      "@els/server/learning/category/data-access/services": [
+        "libs/server/learning/category/data-access/services/src/index.ts"
+      ],
+      "@els/server/learning/category/data-access/types": [
+        "libs/server/learning/category/data-access/types/src/index.ts"
+      ],
+      "@els/server/learning/category/feature": [
+        "libs/server/learning/category/feature/src/index.ts"
+      ],
+      "@els/server/learning/comment/data-access/schemas": [
+        "libs/server/learning/comment/data-access/schemas/src/index.ts"
+      ],
+      "@els/server/learning/comment/data-access/services": [
+        "libs/server/learning/comment/data-access/services/src/index.ts"
+      ],
+      "@els/server/learning/comment/data-access/types": [
+        "libs/server/learning/comment/data-access/types/src/index.ts"
+      ],
+      "@els/server/learning/comment/feature": [
+        "libs/server/learning/comment/feature/src/index.ts"
+      ],
+      "@els/server/learning/common": [
+        "libs/server/learning/common/src/index.ts"
+      ],
+      "@els/server/learning/core": ["libs/server/learning/core/src/index.ts"],
+      "@els/server/learning/course/data/access/entities": [
+        "libs/server/learning/course/data-access/entities/src/index.ts"
+      ],
+      "@els/server/learning/course/data/access/services": [
+        "libs/server/learning/course/data-access/services/src/index.ts"
+      ],
+      "@els/server/learning/course/data/access/types": [
+        "libs/server/learning/course/data-access/types/src/index.ts"
+      ],
+      "@els/server/learning/course/feature": [
+        "libs/server/learning/course/feature/src/index.ts"
+      ],
+      "@els/server/learning/cron/data-access/services": [
+        "libs/server/learning/cron/data-access/services/src/index.ts"
+      ],
+      "@els/server/learning/cron/data-access/types": [
+        "libs/server/learning/cron/data-access/types/src/index.ts"
+      ],
+      "@els/server/learning/cron/feature": [
+        "libs/server/learning/cron/feature/src/index.ts"
+      ],
+      "@els/server/learning/device/data-access/entities": [
+        "libs/server/learning/device/data-access/entities/src/index.ts"
+      ],
+      "@els/server/learning/device/data-access/services": [
+        "libs/server/learning/device/data-access/services/src/index.ts"
+      ],
+      "@els/server/learning/device/data-access/types": [
+        "libs/server/learning/device/data-access/types/src/index.ts"
+      ],
+      "@els/server/learning/device/feature": [
+        "libs/server/learning/device/feature/src/index.ts"
+      ],
+      "@els/server/learning/enrollment/data-access/entities": [
+        "libs/server/learning/enrollment/data-access/entities/src/index.ts"
+      ],
+      "@els/server/learning/enrollment/data-access/services": [
+        "libs/server/learning/enrollment/data-access/services/src/index.ts"
+      ],
+      "@els/server/learning/enrollment/data-access/types": [
+        "libs/server/learning/enrollment/data-access/types/src/index.ts"
+      ],
+      "@els/server/learning/enrollment/feature": [
+        "libs/server/learning/enrollment/feature/src/index.ts"
+      ],
+      "@els/server/learning/grpc": ["libs/server/learning/grpc/src/index.ts"],
+      "@els/server/learning/invitation/data-access/entities": [
+        "libs/server/learning/invitation/data-access/entities/src/index.ts"
+      ],
+      "@els/server/learning/invitation/data-access/services": [
+        "libs/server/learning/invitation/data-access/services/src/index.ts"
+      ],
+      "@els/server/learning/invitation/data-access/types": [
+        "libs/server/learning/invitation/data-access/types/src/index.ts"
+      ],
+      "@els/server/learning/invitation/feature": [
+        "libs/server/learning/invitation/feature/src/index.ts"
+      ],
+      "@els/server/learning/language/data-access/entities": [
+        "libs/server/learning/language/data-access/entities/src/index.ts"
+      ],
+      "@els/server/learning/language/data-access/services": [
+        "libs/server/learning/language/data-access/services/src/index.ts"
+      ],
+      "@els/server/learning/language/feature": [
+        "libs/server/learning/language/feature/src/index.ts"
+      ],
+      "@els/server/learning/lesson/data-access/entities": [
+        "libs/server/learning/lesson/data-access/entities/src/index.ts"
+      ],
+      "@els/server/learning/lesson/data-access/services": [
+        "libs/server/learning/lesson/data-access/services/src/index.ts"
+      ],
+      "@els/server/learning/lesson/data-access/types": [
+        "libs/server/learning/lesson/data-access/types/src/index.ts"
+      ],
+      "@els/server/learning/lesson/feature": [
+        "libs/server/learning/lesson/feature/src/index.ts"
+      ],
+      "@els/server/learning/level/data-access/entities": [
+        "libs/server/learning/level/data-access/entities/src/index.ts"
+      ],
+      "@els/server/learning/level/data-access/services": [
+        "libs/server/learning/level/data-access/services/src/index.ts"
+      ],
+      "@els/server/learning/level/data-access/types": [
+        "libs/server/learning/level/data-access/types/src/index.ts"
+      ],
+      "@els/server/learning/level/feature": [
+        "libs/server/learning/level/feature/src/index.ts"
+      ],
+      "@els/server/learning/memory-analysis/data-access/entities": [
+        "libs/server/learning/memory-analysis/data-access/entities/src/index.ts"
+      ],
+      "@els/server/learning/memory-analysis/data-access/services": [
+        "libs/server/learning/memory-analysis/data-access/services/src/index.ts"
+      ],
+      "@els/server/learning/memory-analysis/feature": [
+        "libs/server/learning/memory-analysis/feature/src/index.ts"
+      ],
+      "@els/server/learning/mission/data-access/entities": [
+        "libs/server/learning/mission/data-access/entities/src/index.ts"
+      ],
+      "@els/server/learning/mission/data-access/services": [
+        "libs/server/learning/mission/data-access/services/src/index.ts"
+      ],
+      "@els/server/learning/mission/data-access/types": [
+        "libs/server/learning/mission/data-access/types/src/index.ts"
+      ],
+      "@els/server/learning/mission/feature": [
+        "libs/server/learning/mission/feature/src/index.ts"
+      ],
+      "@els/server/learning/notification/data-access/entities": [
+        "libs/server/learning/notification/data-access/entities/src/index.ts"
+      ],
+      "@els/server/learning/notification/data-access/services": [
+        "libs/server/learning/notification/data-access/services/src/index.ts"
+      ],
+      "@els/server/learning/notification/data-access/types": [
+        "libs/server/learning/notification/data-access/types/src/index.ts"
+      ],
+      "@els/server/learning/notification/feature": [
+        "libs/server/learning/notification/feature/src/index.ts"
+      ],
+      "@els/server/learning/question/data-access/entities": [
+        "libs/server/learning/question/data-access/entities/src/index.ts"
+      ],
+      "@els/server/learning/question/data-access/services": [
+        "libs/server/learning/question/data-access/services/src/index.ts"
+      ],
+      "@els/server/learning/question/data-access/types": [
+        "libs/server/learning/question/data-access/types/src/index.ts"
+      ],
+      "@els/server/learning/question/feature": [
+        "libs/server/learning/question/feature/src/index.ts"
+      ],
+      "@els/server/learning/queues": [
+        "libs/server/learning/queues/src/index.ts"
+      ],
+      "@els/server/learning/rank-log/data-access/entities": [
+        "libs/server/learning/rank-log/data-access/entities/src/index.ts"
+      ],
+      "@els/server/learning/rank-log/data-access/services": [
+        "libs/server/learning/rank-log/data-access/services/src/index.ts"
+      ],
+      "@els/server/learning/rank-log/data-access/types": [
+        "libs/server/learning/rank-log/data-access/types/src/index.ts"
+      ],
+      "@els/server/learning/rank-log/feature": [
+        "libs/server/learning/rank-log/feature/src/index.ts"
+      ],
+      "@els/server/learning/rank-type/data-access/entities": [
+        "libs/server/learning/rank-type/data-access/entities/src/index.ts"
+      ],
+      "@els/server/learning/rank-type/data-access/services": [
+        "libs/server/learning/rank-type/data-access/services/src/index.ts"
+      ],
+      "@els/server/learning/rank-type/data-access/types": [
+        "libs/server/learning/rank-type/data-access/types/src/index.ts"
+      ],
+      "@els/server/learning/rank-type/feature": [
+        "libs/server/learning/rank-type/feature/src/index.ts"
+      ],
+      "@els/server/learning/rank/data-access/entities": [
+        "libs/server/learning/rank/data-access/entities/src/index.ts"
+      ],
+      "@els/server/learning/rank/data-access/services": [
+        "libs/server/learning/rank/data-access/services/src/index.ts"
+      ],
+      "@els/server/learning/rank/data-access/types": [
+        "libs/server/learning/rank/data-access/types/src/index.ts"
+      ],
+      "@els/server/learning/rank/feature": [
+        "libs/server/learning/rank/feature/src/index.ts"
+      ],
+      "@els/server/learning/reward-unit/data-access/entities": [
+        "libs/server/learning/reward-unit/data-access/entities/src/index.ts"
+      ],
+      "@els/server/learning/reward-unit/data-access/services": [
+        "libs/server/learning/reward-unit/data-access/services/src/index.ts"
+      ],
+      "@els/server/learning/reward-unit/data-access/types": [
+        "libs/server/learning/reward-unit/data-access/types/src/index.ts"
+      ],
+      "@els/server/learning/reward-unit/feature": [
+        "libs/server/learning/reward-unit/feature/src/index.ts"
+      ],
+      "@els/server/learning/setting/data-access/entities": [
+        "libs/server/learning/setting/data-access/entities/src/index.ts"
+      ],
+      "@els/server/learning/setting/data-access/services": [
+        "libs/server/learning/setting/data-access/services/src/index.ts"
+      ],
+      "@els/server/learning/setting/data-access/types": [
+        "libs/server/learning/setting/data-access/types/src/index.ts"
+      ],
+      "@els/server/learning/setting/feature": [
+        "libs/server/learning/setting/feature/src/index.ts"
+      ],
+      "@els/server/learning/skill-level/data-access/entities": [
+        "libs/server/learning/skill-level/data-access/entities/src/index.ts"
+      ],
+      "@els/server/learning/skill-level/data-access/services": [
+        "libs/server/learning/skill-level/data-access/services/src/index.ts"
+      ],
+      "@els/server/learning/skill-level/data-access/types": [
+        "libs/server/learning/skill-level/data-access/types/src/index.ts"
+      ],
+      "@els/server/learning/skill-level/feature": [
+        "libs/server/learning/skill-level/feature/src/index.ts"
+      ],
+      "@els/server/learning/skill/data-access/entities": [
+        "libs/server/learning/skill/data-access/entities/src/index.ts"
+      ],
+      "@els/server/learning/skill/data-access/services": [
+        "libs/server/learning/skill/data-access/services/src/index.ts"
+      ],
+      "@els/server/learning/skill/data-access/types": [
+        "libs/server/learning/skill/data-access/types/src/index.ts"
+      ],
+      "@els/server/learning/skill/feature": [
+        "libs/server/learning/skill/feature/src/index.ts"
+      ],
+      "@els/server/learning/specialization/data-access/entities": [
+        "libs/server/learning/specialization/data-access/entities/src/index.ts"
+      ],
+      "@els/server/learning/specialization/data-access/services": [
+        "libs/server/learning/specialization/data-access/services/src/index.ts"
+      ],
+      "@els/server/learning/specialization/data-access/types": [
+        "libs/server/learning/specialization/data-access/types/src/index.ts"
+      ],
+      "@els/server/learning/specialization/feature": [
+        "libs/server/learning/specialization/feature/src/index.ts"
+      ],
+      "@els/server/learning/streak/data-access/entities": [
+        "libs/server/learning/streak/data-access/entities/src/index.ts"
+      ],
+      "@els/server/learning/streak/data-access/services": [
+        "libs/server/learning/streak/data-access/services/src/index.ts"
+      ],
+      "@els/server/learning/streak/data-access/types": [
+        "libs/server/learning/streak/data-access/types/src/index.ts"
+      ],
+      "@els/server/learning/streak/feature": [
+        "libs/server/learning/streak/feature/src/index.ts"
+      ],
+      "@els/server/learning/topic/data-access/entities": [
+        "libs/server/learning/topic/data-access/entities/src/index.ts"
+      ],
+      "@els/server/learning/topic/data-access/services": [
+        "libs/server/learning/topic/data-access/services/src/index.ts"
+      ],
+      "@els/server/learning/topic/data-access/types": [
+        "libs/server/learning/topic/data-access/types/src/index.ts"
+      ],
+      "@els/server/learning/topic/feature": [
+        "libs/server/learning/topic/feature/src/index.ts"
+      ],
+      "@els/server/learning/user/data-access/entities": [
+        "libs/server/learning/user/data-access/entities/src/index.ts"
+      ],
+      "@els/server/learning/user/data-access/enums": [
+        "libs/server/learning/user/data-access/enums/src/index.ts"
+      ],
+      "@els/server/learning/user/data-access/services": [
+        "libs/server/learning/user/data-access/services/src/index.ts"
+      ],
+      "@els/server/learning/user/data-access/types": [
+        "libs/server/learning/user/data-access/types/src/index.ts"
+      ],
+      "@els/server/learning/user/feature": [
+        "libs/server/learning/user/feature/src/index.ts"
+      ],
+      "@els/server/learning/utils": ["libs/server/learning/utils/src/index.ts"],
+      "@els/server/learning/vocabulary/data-access/entities": [
+        "libs/server/learning/vocabulary/data-access/entities/src/index.ts"
+      ],
+      "@els/server/learning/vocabulary/data-access/services": [
+        "libs/server/learning/vocabulary/data-access/services/src/index.ts"
+      ],
+      "@els/server/learning/vocabulary/data-access/types": [
+        "libs/server/learning/vocabulary/data-access/types/src/index.ts"
+      ],
+      "@els/server/learning/vocabulary/feature": [
+        "libs/server/learning/vocabulary/feature/src/index.ts"
+      ],
+      "@els/server/learning/wordbook/data-access/entities": [
+        "libs/server/learning/wordbook/data-access/entities/src/index.ts"
+      ],
+      "@els/server/learning/wordbook/data-access/services": [
+        "libs/server/learning/wordbook/data-access/services/src/index.ts"
+      ],
+      "@els/server/learning/wordbook/data-access/types": [
+        "libs/server/learning/wordbook/data-access/types/src/index.ts"
+      ],
+      "@els/server/learning/wordbook/feature": [
+        "libs/server/learning/wordbook/feature/src/index.ts"
+      ],
+      "@els/server/notification/amqp": [
+        "libs/server/notification/amqp/src/index.ts"
+      ],
+      "@els/server/notification/common": [
+        "libs/server/notification/common/src/index.ts"
+      ],
+      "@els/server/notification/core": [
+        "libs/server/notification/core/src/index.ts"
+      ],
+      "@els/server/notification/firebase/data-access/services": [
+        "libs/server/notification/firebase/data-access/services/src/index.ts"
+      ],
+      "@els/server/notification/firebase/feature": [
+        "libs/server/notification/firebase/feature/src/index.ts"
+      ],
+      "@els/server/notification/grpc": [
+        "libs/server/notification/grpc/src/index.ts"
+      ],
+      "@els/server/notification/mission/data-access/services": [
+        "libs/server/notification/mission/data-access/services/src/index.ts"
+      ],
+      "@els/server/notification/mission/data-access/types": [
+        "libs/server/notification/mission/data-access/types/src/index.ts"
+      ],
+      "@els/server/notification/mission/feature": [
+        "libs/server/notification/mission/feature/src/index.ts"
+      ],
+      "@els/server/notification/streak/data-access/services": [
+        "libs/server/notification/streak/data-access/services/src/index.ts"
+      ],
+      "@els/server/notification/streak/data-access/types": [
+        "libs/server/notification/streak/data-access/types/src/index.ts"
+      ],
+      "@els/server/notification/streak/feature": [
+        "libs/server/notification/streak/feature/src/index.ts"
+      ],
+      "@els/server/notification/user/data-access/services": [
+        "libs/server/notification/user/data-access/services/src/index.ts"
+      ],
+      "@els/server/notification/user/data-access/types": [
+        "libs/server/notification/user/data-access/types/src/index.ts"
+      ],
+      "@els/server/notification/user/feature": [
+        "libs/server/notification/user/feature/src/index.ts"
+      ],
+      "@els/server/shared": ["libs/server/shared/src/index.ts"],
+      "@els/server/worker/amqp": ["libs/server/worker/amqp/src/index.ts"],
+      "@els/server/worker/common": ["libs/server/worker/common/src/index.ts"],
+      "@els/server/worker/core": ["libs/server/worker/core/src/index.ts"],
+      "@els/server/worker/cron-learning/data-access/services": [
+        "libs/server/worker/cron-learning/data-access/services/src/index.ts"
+      ],
+      "@els/server/worker/cron-learning/feature": [
+        "libs/server/worker/cron-learning/feature/src/index.ts"
+      ],
+      "@els/server/worker/queues": ["libs/server/worker/queues/src/index.ts"],
+      "@els/shared/assets": ["libs/shared/assets/src/index.ts"],
+      "@els/shared/data-access": ["libs/shared/data-access/src/index.ts"],
+      "@els/shared/utils": ["libs/shared/utils/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

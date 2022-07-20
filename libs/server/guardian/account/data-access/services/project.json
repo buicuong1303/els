@@ -1,0 +1,25 @@
+{
+  "root": "libs/server/guardian/account/data-access/services",
+  "sourceRoot": "libs/server/guardian/account/data-access/services/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/server/guardian/account/data-access/services/**/*.ts"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/server/guardian/account/data-access/services"],
+      "options": {
+        "jestConfig": "libs/server/guardian/account/data-access/services/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

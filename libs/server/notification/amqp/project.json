@@ -1,0 +1,23 @@
+{
+  "root": "libs/server/notification/amqp",
+  "sourceRoot": "libs/server/notification/amqp/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/server/notification/amqp/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/server/notification/amqp"],
+      "options": {
+        "jestConfig": "libs/server/notification/amqp/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,25 @@
+{
+  "root": "libs/client/app/shared/contexts",
+  "sourceRoot": "libs/client/app/shared/contexts/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/client/app/shared/contexts/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/client/app/shared/contexts"],
+      "options": {
+        "jestConfig": "libs/client/app/shared/contexts/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

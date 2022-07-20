@@ -1,0 +1,25 @@
+{
+  "root": "libs/server/learning/specialization/feature",
+  "sourceRoot": "libs/server/learning/specialization/feature/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/server/learning/specialization/feature/**/*.ts"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/server/learning/specialization/feature"],
+      "options": {
+        "jestConfig": "libs/server/learning/specialization/feature/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

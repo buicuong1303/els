@@ -1,0 +1,23 @@
+{
+  "root": "libs/server/notification/user/feature",
+  "sourceRoot": "libs/server/notification/user/feature/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/server/notification/user/feature/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/server/notification/user/feature"],
+      "options": {
+        "jestConfig": "libs/server/notification/user/feature/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,23 @@
+{
+  "root": "libs/server/learning/queues",
+  "sourceRoot": "libs/server/learning/queues/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/server/learning/queues/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/server/learning/queues"],
+      "options": {
+        "jestConfig": "libs/server/learning/queues/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

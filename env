@@ -1,0 +1,113 @@
+# server-guardian, server-learning, server-dictionary, server-worker
+# POSTGRES
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+POSTGRES_DB=els
+PG_DATA=/var/lib/postgresql/data
+
+# server-guardian
+COOKIE_SECRET=ipsumipsumipsumi
+
+# server-shared
+# AZURE_SPEECH
+AZURE_SPEECH_KEY=
+AZURE_SPEECH_REGION=
+
+# server-learning, server-worker
+# REDIS
+REDIS_PORT=6379
+REDIS_HOST=redis
+REDIS_PASSWORD=redis
+
+# server-share
+# MIN-IO
+# 80
+MINIO_PORT=9000
+# https://minio.els.com
+MINIO_HOST=minio
+MINIO_ROOT_USER=minio
+MINIO_ROOT_PASSWORD=minio123
+MINIO_BUCKET_NAME=els
+MINIO_PUBLIC_HOST=https://minio.els.com
+MINIO_REGION=vietnam
+
+# distributed tracing
+COLLECTOR_URL='' # 172.17.0.1:4317
+ENABLE_TRACING=0 # 1 = true, 0 = false
+
+# server-learning
+# FIREBASE
+FIREBASE_PROJECT_ID=
+FIREBASE_PRIVATE_KEY=
+FIREBASE_CLIENT_EMAIL=
+
+# server-learning, server-notification, server-worker
+# RABBITMQ
+RABBITMQ_ERLANG_COOKIE=erlang_cookie_secret
+RABBITMQ_DEFAULT_VHOST=/
+RABBITMQ_DEFAULT_USER=rabbitmq
+RABBITMQ_DEFAULT_PASS=rabbitmq
+RABBITMQ_HOST=rabbitmq
+RABBITMQ_PORT=5672
+
+# server-dictionary
+# WORD API
+WORD_API_HOST=
+WORD_API_KEY=
+WORD_API_URL=https://wordsapiv1.p.rapidapi.com/words/
+
+# server-guardian
+KRATOS_PUBLIC_URL=http://kratos:4433 # only for server force create
+KRATOS_ADMIN_URL=http://kratos:4434
+
+# server-graphql-federation-gateway
+SUBGRAPH_LEARNING_ENDPOINT=http://172.17.0.1:3000/graphql
+SUBGRAPH_DICTIONARY_ENDPOINT=http://172.17.0.1:3001/graphql
+SUBGRAPH_GUARDIAN_ENDPOINT=http://172.17.0.1:3002/graphql
+
+# wikdcard domain
+WILDCARD_DOMAIN=.els.com
+
+# server-learning
+# MONGODB
+MONGODB_HOST=mongo
+MONGODB_PORT=27017
+MONGODB_USER=admin
+MONGODB_PASSWORD=mongo
+MONGODB_DB=els
+
+# grpc
+GRPC_PORT=5000
+GRPC_LEARNING_HOST=learning
+GRPC_GUARDIAN_HOST=guardian
+GRPC_DICTIONARY_HOST=dictionary
+
+# CORS
+GUARDIAN_URL=https://guardian.els.com
+APP_URL=https://app.els.com
+APOLLO_URL=https://studio.apollographql.com
+
+# BASIC AUTH
+# server-learning, kratos config
+BASIC_AUTH_USERNAME=php
+BASIC_AUTH_PASSWORD=123
+
+# CRON JOB
+CRON_CREATE_ACTUAL_SKILL_HISTORY=0 0 0 * * *
+CRON_CALC_MEMORY_ANALYSIS=0 0 0 * * *
+CRON_REDUCE_LEVEL_ACTUAL_SKILL=0 0 0 * * *
+CRON_ASSIGN_MISSION=0 0 0 * * *
+CRON_UPDATE_RANK=0 */30 * * * *
+CRON_RESET_EXP_DATE=0 0 0 * * *
+CRON_INACTIVE_STREAK_LIST=0 59 23 * * *
+CRON_REMIND_PRACTICE_MORNING=0 0 7 * * *
+CRON_REMIND_PRACTICE_AFTERNOON=0 0 13 * * *
+CRON_REMIND_PRACTICE_EVENING=0 0 19 * * *
+CRON_REMIND_PRACTICE_MIDNIGHT=0 0 21 * * *
+CRON_REMIND_COMEBACK=0 0 9 * * *
+CRON_COMPLAIN_1=0 0 9 * * *
+
+# Auth Guard
+AUTH_GUARD_EXPIRED_TIME=86400

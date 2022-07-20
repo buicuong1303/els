@@ -1,0 +1,27 @@
+{
+  "root": "libs/server/dictionary/example-translation/data-access/entities",
+  "sourceRoot": "libs/server/dictionary/example-translation/data-access/entities/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/server/dictionary/example-translation/data-access/entities/**/*.ts"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/libs/server/dictionary/example-translation/data-access/entities"
+      ],
+      "options": {
+        "jestConfig": "libs/server/dictionary/example-translation/data-access/entities/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

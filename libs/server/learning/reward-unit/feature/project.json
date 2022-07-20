@@ -1,0 +1,23 @@
+{
+  "root": "libs/server/learning/reward-unit/feature",
+  "sourceRoot": "libs/server/learning/reward-unit/feature/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/server/learning/reward-unit/feature/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/server/learning/reward-unit/feature"],
+      "options": {
+        "jestConfig": "libs/server/learning/reward-unit/feature/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

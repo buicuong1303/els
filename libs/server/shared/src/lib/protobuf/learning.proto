@@ -1,0 +1,29 @@
+
+syntax = "proto3";
+
+package els.srv.learning;
+
+message CreateUserRequest {
+  string identityId =  1;
+  string userInvitedId = 2;
+}
+message CreateUserResponse {
+  string userId =  1;
+}
+
+message UpdateUserRequest {
+  string userId =  1;
+}
+message UpdateUserResponse {
+  string id =  1;
+  string exp = 2;
+}
+
+message UpdateRankRequest {}
+message UpdateRankResponse {}
+
+service LearningService {
+  rpc CreateUser(CreateUserRequest) returns (CreateUserResponse) {}
+  rpc UpdateRank(UpdateRankRequest) returns (UpdateRankResponse) {}
+  rpc UpdateUser(UpdateUserRequest) returns (UpdateUserResponse) {}
+}

@@ -1,0 +1,22 @@
+{
+  "root": "libs/server/learning/cron/feature",
+  "sourceRoot": "libs/server/learning/cron/feature/src",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/server/learning/cron/feature/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/server/learning/cron/feature"],
+      "options": {
+        "jestConfig": "libs/server/learning/cron/feature/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

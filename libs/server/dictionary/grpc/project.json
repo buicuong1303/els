@@ -1,0 +1,23 @@
+{
+  "root": "libs/server/dictionary/grpc",
+  "sourceRoot": "libs/server/dictionary/grpc/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/server/dictionary/grpc/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/server/dictionary/grpc"],
+      "options": {
+        "jestConfig": "libs/server/dictionary/grpc/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

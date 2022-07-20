@@ -1,0 +1,25 @@
+{
+  "root": "libs/client/guardian/feature/reset-password",
+  "sourceRoot": "libs/client/guardian/feature/reset-password/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/client/guardian/feature/reset-password/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/client/guardian/feature/reset-password"],
+      "options": {
+        "jestConfig": "libs/client/guardian/feature/reset-password/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}
